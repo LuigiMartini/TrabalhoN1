@@ -14,7 +14,7 @@
         android:ems="10"
         android:hint="@string/textNome"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/valorRaca"
+        app:layout_constraintBottom_toTopOf="@+id/valorAutor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent" />
@@ -30,25 +30,25 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/valorRaca"
+        android:id="@+id/valorAutor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="48dp"
         android:ems="10"
-        android:hint="@string/textRaca"
+        android:hint="@string/textAutor"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/valorIdade"
+        app:layout_constraintBottom_toTopOf="@+id/valorAno"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/valorIdade"
+        android:id="@+id/valorAno"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="132dp"
         android:ems="10"
-        android:hint="@string/textIdade"
+        android:hint="@string/textAno"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/salvar"
         app:layout_constraintEnd_toEndOf="parent"

@@ -12,11 +12,12 @@ import android.widget.Toast;
 public class ListaActivity extends AppCompatActivity {
 
     private EditText valorNome;
-    private EditText valorRaca;
-    private EditText valorIdade;
+    private EditText valorAutor;
+    private EditText valorAno;
     private Button salvar;
     private Button checarLista;
-    private Cachorro cachorro;
+    private Historia historia;
+    private String acao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,10 +25,14 @@ public class ListaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_lista);
 
         valorNome = findViewById(R.id.valorNome);
-        valorRaca = findViewById(R.id.valorRaca);
-        valorIdade = findViewById(R.id.valorIdade);
+        valorAutor = findViewById(R.id.valorAutor);
+        valorAno = findViewById(R.id.valorAno);
         salvar = findViewById(R.id.salvar);
 
+        acao = getIntent().getStringExtra("acao");
+        if (acao.equals("editar")) {
+            carregarFormulario();
+        }
         salvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -37,18 +42,36 @@ public class ListaActivity extends AppCompatActivity {
     }
 
     private void salvar() {
-        cachorro = new Cachorro();
+        if (acao.equals("novo")) {
+            historia = new Historia();
+        }
 
-        if (isNumeric(valorIdade.getText().toString())) {
-            cachorro.nome = valorNome.getText().toString();
-            cachorro.raca = valorRaca.getText().toString();
-            cachorro.idade = Integer.valueOf(valorIdade.getText().toString());
-            CachorroDAO.inserir(cachorro, this);
-            valorNome.setText("");
-            valorRaca.setText("");
-            valorIdade.setText("");
+        if (isNumeric(valorAno.getText().toString())) {
+            historia.nome = valorNome.getText().toString();
+            historia.autor = valorAutor.getText().toString();
+            historia.ano = Integer.valueOf(valorAno.getText().toString());
+            if (acao.equals("editar")) {
+                HistoriaDAO.editar(historia, this);
+                finish();
+            } else {
+                HistoriaDAO.inserir(historia, this);
+                valorNome.setText("");
+                valorAutor.setText("");
+                valorAno.setText("");
+            }
+
         } else {
-            Toast.makeText(this, "O campo 'idade' deve conter apenas números.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "O campo 'ano' deve conter apenas números.", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void carregarFormulario() {
+        int idHistoria = getIntent().getIntExtra("idHistoria", 0);
+        if (idHistoria != 0) {
+            historia = HistoriaDAO.getHistoriaById(this, idHistoria);
+            valorNome.setText(historia.nome);
+            valorAno.setText(String.valueOf(historia.ano));
+            valorAutor.setText(historia.autor);
         }
     }
 

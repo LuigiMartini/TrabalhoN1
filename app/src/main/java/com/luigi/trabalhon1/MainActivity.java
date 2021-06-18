@@ -1,10 +1,12 @@
 package com.luigi.trabalhon1;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
@@ -18,6 +20,7 @@ import com.luigi.trabalhon1.databinding.ActivityMainBinding;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -27,9 +30,9 @@ public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;
-    private ListView listaCachorros;
+    private ListView listaHistorias;
     private ArrayAdapter adapter;
-    private List<Cachorro> lista;
+    private List<Historia> lista;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,14 +52,55 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        listaCachorros = findViewById(R.id.listaCachorros);
-        carregarCachorros();
+        listaHistorias = findViewById(R.id.listaHistorias);
+        carregarHistorias();
+
+        configurarListView();
+    }
+
+    private void configurarListView() {
+        listaHistorias.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Historia historiaSelecionada = lista.get(position);
+                Intent intent = new Intent(MainActivity.this, ListaActivity.class);
+                intent.putExtra("acao", "editar");
+                intent.putExtra("idHistoria", historiaSelecionada.id);
+                startActivity(intent);
+            }
+        });
+
+        listaHistorias.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                Historia historiaSelecionada = lista.get(position);
+                excluirHistoria(historiaSelecionada);
+                return true;
+            }
+        });
+    }
+
+    private void excluirHistoria(Historia historia) {
+        AlertDialog.Builder alerta = new AlertDialog.Builder(this);
+        alerta.setIcon(android.R.drawable.ic_input_delete);
+        alerta.setTitle("Atenção");
+        alerta.setMessage("Confirma a exclusão da história " + historia.nome + "?");
+        alerta.setNeutralButton("Cancelar", null);
+        alerta.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                HistoriaDAO.excluir(historia.id, MainActivity.this);
+                carregarHistorias();
+            }
+        });
+
+        alerta.show();
     }
 
     @Override
     protected void onRestart() {
         super.onRestart();
-        carregarCachorros();
+        carregarHistorias();
     }
 
     @Override
@@ -64,10 +108,10 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
     }
 
-    private void carregarCachorros() {
-        lista = CachorroDAO.getCachorros(this);
+    private void carregarHistorias() {
+        lista = HistoriaDAO.getHistorias(this);
         adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, lista);
-        listaCachorros.setAdapter(adapter);
+        listaHistorias.setAdapter(adapter);
     }
 
     @Override

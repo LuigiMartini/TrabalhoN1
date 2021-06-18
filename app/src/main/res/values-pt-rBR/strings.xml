@@ -1,10 +1,10 @@
 <resources>
-    <string name="app_name">AppCachorrada</string>
+    <string name="app_name">HQs</string>
     <string name="action_settings">Configurações</string>
-    <string name="textTitulo">Cadastre seu cachorro</string>
+    <string name="textTitulo">Cadastre sua história em quadrinhos</string>
     <string name="textNome">Nome</string>
-    <string name="textRaca">Raça</string>
-    <string name="textIdade">Idade</string>
+    <string name="textAutor">Autor</string>
+    <string name="textAno">Ano</string>
     <string name="textSalvar">Salvar</string>
 
 

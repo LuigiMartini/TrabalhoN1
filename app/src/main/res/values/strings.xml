@@ -1,10 +1,10 @@
 <resources>
-    <string name="app_name">AppDogs</string>
+    <string name="app_name">HQs</string>
     <string name="action_settings">Settings</string>
-    <string name="textTitulo">Register your dog</string>
+    <string name="textTitulo">Register your comic</string>
     <string name="textNome">Name</string>
-    <string name="textRaca">Breed</string>
-    <string name="textIdade">Age</string>
+    <string name="textAutor">Author</string>
+    <string name="textAno">Year</string>
     <string name="textSalvar">Save</string>
 
 

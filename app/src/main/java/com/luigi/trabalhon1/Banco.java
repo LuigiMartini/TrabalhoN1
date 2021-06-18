@@ -9,7 +9,7 @@ import androidx.annotation.Nullable;
 public class Banco extends SQLiteOpenHelper {
 
     private static final int VERSAO = 1;
-    private static final String NOME = "AppCachorrada";
+    private static final String NOME = "HQs";
 
     public Banco(Context context) {
         super(context, NOME, null, VERSAO);
@@ -17,11 +17,11 @@ public class Banco extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE IF NOT EXISTS cachorro (" +
+        db.execSQL("CREATE TABLE IF NOT EXISTS hq (" +
                 "    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT ," +
                 "    nome TEXT NOT NULL ," +
-                "    raca TEXT NOT NULL ," +
-                "    idade INTEGER NOT NULL)");
+                "    autor TEXT NOT NULL ," +
+                "    ano INTEGER NOT NULL)");
     }
 
     @Override
