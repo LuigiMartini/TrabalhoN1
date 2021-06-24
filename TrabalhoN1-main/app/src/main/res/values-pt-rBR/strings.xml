@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">HQs</string>
+    <string name="action_settings">Configurações</string>
+    <string name="textTitulo">Cadastre sua história em quadrinhos</string>
+    <string name="textNome">Nome</string>
+    <string name="textAutor">Autor</string>
+    <string name="textAno">Ano</string>
+    <string name="textSalvar">Salvar</string>
+
+
+
+
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="textCadastro" translatable="false">Casdastro</string>
+    <string name="textLista" translatable="false">Lista</string>
+</resources>
