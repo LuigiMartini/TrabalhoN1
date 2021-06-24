@@ -5,24 +5,29 @@ public class Historia {
     public String nome;
     public String autor;
     public int ano;
+    public  String foto;
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
 
     public Historia() { }
 
-    public Historia(String nome, String autor, int ano) {
+    public Historia(String nome, String autor, int ano, String foto) {
         this.nome = nome;
         this.autor = autor;
         this.ano = ano;
-    }
+        this.foto = foto;
 
-    public Historia(int id, String nome, String autor, int ano) {
-        this.id = id;
-        this.nome = nome;
-        this.autor = autor;
-        this.ano = ano;
+
     }
 
     @Override
     public String toString() {
-        return nome + " - " + autor + ", " + ano + " anos";
+        return nome + " - " + autor + ", " + ano + " anos" + foto;
     }
 }

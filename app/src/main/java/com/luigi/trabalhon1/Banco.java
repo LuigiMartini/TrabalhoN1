@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 
 public class Banco extends SQLiteOpenHelper {
 
-    private static final int VERSAO = 1;
+    private static final int VERSAO = 2;
     private static final String NOME = "HQs";
 
     public Banco(Context context) {
@@ -21,8 +21,10 @@ public class Banco extends SQLiteOpenHelper {
                 "    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT ," +
                 "    nome TEXT NOT NULL ," +
                 "    autor TEXT NOT NULL ," +
-                "    ano INTEGER NOT NULL)");
+                "    ano INTEGER NOT NULL ," +
+                "    foto TEXT )");
     }
+
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
