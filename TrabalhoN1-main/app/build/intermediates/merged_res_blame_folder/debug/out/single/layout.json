@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "D:\\Download\\TrabalhoN1-main\\TrabalhoN1-main\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_main.xml",
+        "source": "D:\\Download\\TrabalhoN1-main\\TrabalhoN1-main\\app\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "D:\\Download\\TrabalhoN1-main\\TrabalhoN1-main\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\content_main.xml",
+        "source": "D:\\Download\\TrabalhoN1-main\\TrabalhoN1-main\\app\\src\\main\\res\\layout\\content_main.xml"
+    },
+    {
+        "merged": "D:\\Download\\TrabalhoN1-main\\TrabalhoN1-main\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_lista.xml",
+        "source": "D:\\Download\\TrabalhoN1-main\\TrabalhoN1-main\\app\\src\\main\\res\\layout\\activity_lista.xml"
+    },
+    {
+        "merged": "D:\\Download\\TrabalhoN1-main\\TrabalhoN1-main\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\layout_lista.xml",
+        "source": "D:\\Download\\TrabalhoN1-main\\TrabalhoN1-main\\app\\src\\main\\res\\layout\\layout_lista.xml"
+    }
+]
